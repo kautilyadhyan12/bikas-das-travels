@@ -914,7 +914,9 @@ const CONFIG = {
   whatsapp: "917086728443",           // primary booking line
   phone:    "+917086728443",          // tap-to-call (alt: 7637955163)
   heroPhoto:"url('images/destination-teagarden.png')",   // aerial: black Bikash Das coach through Upper Assam tea country
-  mapQuery: "Jorhat, Assam",          // home base boarding point
+  mapQuery: "Jorhat, Assam",          // home base boarding point (used for the "Get directions" Google Maps link)
+  mapLat: 26.7565,                    // latitude of boarding point (used for the embedded map)
+  mapLon: 94.2038,                    // longitude of boarding point (used for the embedded map)
 
   // Festival banner — dates MOVE every year (Bihu/Eid especially). Update yearly.
   festivals: [
@@ -1159,9 +1161,12 @@ function applyConfig(){
   // tel links
   const tel = 'tel:'+CONFIG.phone;
   ['navCall','contactCall','footCall'].forEach(id=>{ const el=document.getElementById(id); if(el) el.setAttribute('href', tel); });
-  // map + directions
+  // map (OpenStreetMap embed — no API key needed, renders consistently on mobile & desktop)
+  const dLon = 0.02, dLat = 0.015;
+  const bbox = [CONFIG.mapLon-dLon, CONFIG.mapLat-dLat, CONFIG.mapLon+dLon, CONFIG.mapLat+dLat].join(',');
   document.getElementById('mapFrame').src =
-    `https://maps.google.com/maps?q=${encodeURIComponent(CONFIG.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+    `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${CONFIG.mapLat},${CONFIG.mapLon}`;
+  // directions button still opens real Google Maps for actual navigation
   document.getElementById('dirBtn').href =
     `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(CONFIG.mapQuery)}`;
   document.getElementById('year').textContent = new Date().getFullYear();
