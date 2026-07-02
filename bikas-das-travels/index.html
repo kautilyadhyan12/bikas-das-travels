@@ -136,7 +136,7 @@ body.lang-as .lang button[data-l="as"]{font-family:"Noto Sans Bengali",sans-seri
 #hero h1 .l1,#hero h1 .l2{display:block;opacity:0;transform:translateY(26px);animation:up 1s var(--ease-out) forwards}
 #hero h1 .l1{animation-delay:.34s}#hero h1 .l2{animation-delay:.48s}
 @keyframes up{to{opacity:1;transform:none}}
-.hero-sub{font-size:clamp(16px,2.1vw,20px);color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.35);max-width:46ch;margin:22px 0 0;
+.hero-sub{font-size:clamp(16px,2.1vw,20px);color:rgba(255,255,255,.9);max-width:46ch;margin:22px 0 0;
   opacity:0;transform:translateY(20px);animation:up 1s var(--ease-out) .64s forwards}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;align-items:center;
   opacity:0;transform:translateY(20px);animation:up 1s var(--ease-out) .8s forwards}
@@ -213,7 +213,7 @@ body.lang-as .route .city{font-family:"Noto Serif Bengali",serif}
 /* ---------- AMENITIES (blue wash) ---------- */
 #amenities{background:var(--blue-wash)}
 #amenities .sec-head h2 .g{color:var(--blue)}
-.amen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .amen{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:26px 22px;
   box-shadow:0 4px 16px rgba(20,121,196,.08);
   transition:border-color .4s,transform .4s var(--ease),box-shadow .4s}
@@ -311,9 +311,8 @@ body.lang-as .contact-copy .board b{font-family:"Noto Serif Bengali",serif}
 .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 #contact .btn-call{color:#fff;border-color:var(--line-cream)}
 #contact .btn-call:hover{border-color:var(--gold);background:rgba(227,154,34,.1)}
-.map{border-radius:18px;overflow:hidden;border:1px solid var(--line-cream);height:360px;min-height:360px;position:relative;background:var(--ink-2)}
+.map{border-radius:18px;overflow:hidden;border:1px solid var(--line-cream);min-height:360px;position:relative;background:var(--ink-2)}
 .map iframe{width:100%;height:100%;min-height:360px;border:0}
-@media(max-width:680px){.map{height:280px;min-height:280px}.map iframe{min-height:280px}}
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--ink-2);color:var(--cream);padding:54px 0 40px}
@@ -340,21 +339,12 @@ footer.has-bg .brand b,footer.has-bg .brand span,footer.has-bg p,footer.has-bg .
 @keyframes floatpulse{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.42)}50%{box-shadow:0 10px 42px rgba(37,211,102,.62)}}
 
 /* ---------- RESPONSIVE ---------- */
-.hamburger{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:38px;height:38px;
-  align-items:center;justify-content:center;cursor:pointer;color:var(--ink);padding:0;flex:none}
-.mobile-nav{display:none;flex-direction:column;background:var(--paper-2);border-top:1px solid var(--line);
-  box-shadow:0 14px 34px rgba(23,34,59,.14)}
-.mobile-nav a{padding:16px 24px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)}
-.mobile-nav a:last-child{border-bottom:0}
-.mobile-nav.open{display:flex}
-
 @media(max-width:960px){
   .book-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
   .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
   .amen-grid{grid-template-columns:repeat(2,1fr)}
   .rev-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .hamburger{display:inline-flex}
 }
 @media(max-width:680px){
   .wrap{padding:0 18px}
@@ -582,6 +572,231 @@ html{overflow-x:hidden}
   .shot.big{grid-column:span 1}
 }
 
+/* ================================================================
+   MOBILE POLISH v2 — appended, purely additive.
+   Fixes the "everything feels compact / cramped" issue on phones:
+   more breathing room, bigger tap targets, comfier type, and a
+   less crowded hero + carousel. Desktop (>680px) is untouched.
+   ================================================================ */
+@media(max-width:680px){
+
+  /* ---------- overall rhythm: more air between things ---------- */
+  .sec{padding:64px 0}
+  .sec-head{margin-bottom:34px}
+  .sec-head h2{font-size:clamp(30px,8.4vw,38px);line-height:1.12}
+  .sec-head p{font-size:15px;margin-top:12px;line-height:1.65}
+  .eyebrow{font-size:11px;letter-spacing:.18em}
+
+  /* ---------- hero: shorter, roomier, thumb-friendly ---------- */
+  #hero{min-height:92svh;align-items:flex-end}
+  .hero-content{padding-top:0;padding-bottom:96px}
+  #hero h1{font-size:clamp(40px,11.5vw,52px);line-height:1.06;margin-top:14px}
+  .hero-sub{font-size:15.5px;line-height:1.6;margin-top:16px;max-width:34ch}
+  .hero-cta{margin-top:26px;gap:12px}
+  .hero-cta .btn-wa{width:100%;justify-content:center;padding:15px 22px;font-size:16px}
+  .hero-cta .ghost{font-size:14px}
+  .scrollcue{display:none}
+
+  /* ---------- nav: give the row room to breathe ---------- */
+  .nav-in{height:62px;gap:10px}
+  .brand{gap:8px;min-width:0}
+  .brand>span{min-width:0}
+  .brand b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:44vw}
+  .brand span{font-size:8px;letter-spacing:.12em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:44vw}
+  .nav-right{gap:8px;flex:none}
+  .lang button{padding:5px 9px;font-size:11px}
+  .btn-wa.sm{padding:9px 13px;font-size:12.5px}
+  .btn-wa.sm svg{width:16px;height:16px}
+
+  /* ---------- experience carousel: taller so captions fit ---------- */
+  .xp{aspect-ratio:4/5;border-radius:18px}
+  .xp-cap{padding:18px 18px 46px}
+  .xp-cap b{font-size:clamp(24px,7.4vw,30px);line-height:1.12}
+  .xp-cap span{font-size:13.5px;margin-top:6px}
+  .xp-dots{bottom:16px;right:18px}
+  .xp-arrow{top:auto;bottom:12px;transform:none}
+  .xp-prev{left:14px}
+  .xp-next{left:60px;right:auto}
+
+  /* ---------- booking: card gets padding, steps get space ---------- */
+  .book-grid{gap:30px}
+  .book-copy .steps{margin-top:22px;gap:14px}
+  .book-copy .step p{font-size:14px;line-height:1.6}
+  .form{padding:24px 18px;border-radius:18px}
+  .form .grid2{gap:12px}
+  .field{margin-bottom:12px}
+  .field label{font-size:11px}
+  .field input,.field select{padding:14px;font-size:16px} /* 16px stops iOS auto-zoom */
+  .form .btn-wa{padding:15px 22px;font-size:16px}
+  .form .hint{font-size:11.5px;margin-top:10px}
+
+  /* ---------- gallery: one comfy column, taller tiles ---------- */
+  .gallery{grid-template-columns:1fr;grid-auto-rows:230px;gap:12px}
+  .shot,.shot.big{grid-column:span 1;grid-row:span 1}
+  .shot .cap{font-size:12.5px;padding:14px 14px 12px}
+  .shot .cap b{font-size:13.5px}
+
+  /* ---------- amenities: single column, roomier cards ---------- */
+  .amen-grid{grid-template-columns:1fr;gap:12px}
+  .amen{padding:22px 20px;display:flex;align-items:flex-start;gap:16px}
+  .amen .ic{margin-bottom:0;flex:none}
+  .amen b{margin-bottom:2px}
+  .amen span{font-size:13px;line-height:1.5}
+
+  /* ---------- reviews ---------- */
+  .rev{padding:22px 20px}
+  .rev p{font-size:16.5px;line-height:1.55}
+
+  /* ---------- about + stats ---------- */
+  .about-grid{gap:30px}
+  .about-copy p{font-size:15.5px;line-height:1.65}
+  .stats{gap:12px}
+  .stat{padding:20px 16px}
+  .stat b{font-size:32px}
+  .stat span{font-size:12px;margin-top:6px}
+
+  /* ---------- faq: bigger touch area, calmer text ---------- */
+  .qa button{font-size:16px;line-height:1.4;padding:20px 36px 20px 0}
+  .qa .ans p{font-size:14.5px;line-height:1.65}
+
+  /* ---------- contact ---------- */
+  .contact-grid{gap:28px}
+  .contact-copy .board{padding:18px 18px;margin-top:18px}
+  .contact-copy .board b{font-size:19px}
+  .contact-copy .board span{font-size:13px;line-height:1.55}
+  .contact-actions{gap:10px;margin-top:18px}
+  .contact-actions .btn-call{flex:1;justify-content:center;padding:13px 14px;font-size:14px}
+
+  /* ---------- footer ---------- */
+  footer{padding:44px 0 32px}
+  .foot{gap:30px}
+  .foot .cols{gap:40px;flex-wrap:wrap}
+  .foot .col a{padding:4px 0;margin-bottom:8px} /* taller tap targets */
+  .copy{margin-top:30px;padding-top:20px;flex-direction:column;gap:6px}
+
+  /* ---------- splash: scale name down so it never clips ---------- */
+  .splash-name{font-size:clamp(26px,8vw,34px)}
+  .splash-logo{width:64px;height:64px;border-radius:18px}
+  .splash-logo svg{width:32px;height:32px}
+  .splash-tag{font-size:11px;letter-spacing:.18em}
+
+  /* ---------- lightbox caption ---------- */
+  .lb-cap{font-size:15px;padding:0 8px}
+
+  /* ---------- floating WA button: clear of the thumb zone ---------- */
+  #float{width:54px;height:54px;right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
+  #float svg{width:26px;height:26px}
+}
+
+/* ---- very narrow phones (≤400px): trim the last tight spots ---- */
+@media(max-width:400px){
+  .wrap{padding:0 14px}
+  #hero h1{font-size:clamp(34px,11vw,42px)}
+  .sec-head h2{font-size:27px}
+  .xp{aspect-ratio:3/4}
+  .brand b{max-width:38vw}
+  .brand span{max-width:38vw}
+  .lang button{padding:4px 8px}
+  .nav-right .btn-wa.sm span{display:none}   /* icon-only Book button */
+  .nav-right .btn-wa.sm{padding:9px 11px}
+}
+
+/* ---- landscape phones: hero shouldn't eat two screens ---- */
+@media(max-width:900px) and (max-height:450px) and (orientation:landscape){
+  #hero{min-height:auto;padding:90px 0 70px}
+  .hero-content{padding-bottom:0}
+  #hero h1{font-size:36px}
+}
+
+/* ================================================================
+   MOBILE APP-LIKE v3 — appended, purely additive.
+   Turns the phone experience into an app-style layout:
+   swipeable gallery & reviews, sticky bottom action bar,
+   bolder hero, card-style sections. Desktop untouched.
+   ================================================================ */
+@media(max-width:680px){
+
+  /* ---------- HERO: bold, poster-like ---------- */
+  #hero{min-height:100svh}
+  .hero-grad{background:linear-gradient(180deg,rgba(17,27,49,.45) 0%,rgba(17,27,49,.1) 30%,rgba(17,27,49,.62) 62%,rgba(17,27,49,.97) 100%)}
+  .hero-content{padding-bottom:120px}
+  #hero h1{font-size:clamp(44px,13vw,58px);letter-spacing:-.03em}
+  .hero-cta .ghost{width:100%;justify-content:center;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:13px 20px;backdrop-filter:blur(6px);background:rgba(255,255,255,.08)}
+  .hero-cta .ghost:hover{border-color:var(--gold)}
+
+  /* ---------- GALLERY: horizontal swipe cards (app style) ---------- */
+  .gallery{display:flex;grid-template-columns:none;grid-auto-rows:auto;gap:14px;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    padding:4px 4px 18px;margin:0 -18px;padding-left:18px;padding-right:18px;
+    scrollbar-width:none}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery .shot,.gallery .shot.big{flex:0 0 78vw;max-width:340px;height:340px;
+    grid-column:auto;grid-row:auto;scroll-snap-align:center;border-radius:20px}
+  .gallery .shot .cap{padding:16px}
+  /* swipe hint: soft fade on the right edge */
+  #gallery .wrap{position:relative}
+
+  /* ---------- REVIEWS: horizontal swipe cards ---------- */
+  .rev-grid{display:flex;grid-template-columns:none;gap:14px;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    padding:4px 4px 18px;margin:0 -18px;padding-left:18px;padding-right:18px;
+    scrollbar-width:none}
+  .rev-grid::-webkit-scrollbar{display:none}
+  .rev{flex:0 0 82vw;max-width:360px;scroll-snap-align:center}
+
+  /* ---------- STATS: 2x2 tight cards with big numerals ---------- */
+  .stats{grid-template-columns:1fr 1fr;gap:10px}
+  .stat{padding:18px 14px;border-radius:14px;text-align:center}
+  .stat b{font-size:34px}
+
+  /* ---------- STICKY BOTTOM ACTION BAR (injected by script) ---------- */
+  #mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:400;display:flex;gap:10px;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(250,246,238,.92);backdrop-filter:blur(16px) saturate(1.4);
+    border-top:1px solid var(--line);box-shadow:0 -8px 30px rgba(23,34,59,.12);
+    transform:translateY(110%);transition:transform .45s var(--ease-out)}
+  #mob-bar.show{transform:none}
+  #mob-bar .mb-call{flex:0 0 auto;display:grid;place-items:center;width:50px;height:50px;
+    border-radius:14px;border:1.5px solid var(--line-2);background:var(--paper-2);color:var(--ink)}
+  #mob-bar .mb-call svg{width:20px;height:20px}
+  #mob-bar .mb-wa{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    background:var(--wa);color:var(--wa-ink);font-weight:800;font-size:15.5px;border:0;
+    border-radius:14px;height:50px;font-family:inherit;cursor:pointer;
+    box-shadow:0 6px 18px rgba(37,211,102,.38)}
+  #mob-bar .mb-wa svg{width:20px;height:20px}
+  /* hide the floating bubble on phones — the bar replaces it */
+  #float{display:none}
+  /* keep page content from hiding behind the bar */
+  footer{padding-bottom:calc(40px + 74px + env(safe-area-inset-bottom))}
+
+  /* ---------- section headers: centred, poster feel ---------- */
+  .sec-head{text-align:center;margin-left:auto;margin-right:auto}
+  .sec-head .eyebrow{justify-content:center}
+  .sec-head p{margin-left:auto;margin-right:auto}
+  .eyebrow::before{width:20px}
+
+  /* ---------- booking steps: card-chips ---------- */
+  .book-copy .step{background:rgba(255,255,255,.66);border:1px solid var(--line);
+    border-radius:14px;padding:13px 14px;backdrop-filter:blur(3px)}
+  .book-copy .step i{width:26px;height:26px;font-size:13px}
+
+  /* ---------- contact board: card look ---------- */
+  .contact-copy{text-align:center}
+  .contact-copy .eyebrow{justify-content:center}
+  .contact-copy .board{text-align:left}
+
+  /* ---------- perf: kill heavy effects on phones ---------- */
+  .has-bg::before{background-attachment:scroll}
+  .xp-slide{transition:opacity .8s var(--ease)}
+}
+
+/* wider phones / small tablets get 2-up swipe cards */
+@media(min-width:520px) and (max-width:680px){
+  .gallery .shot,.gallery .shot.big{flex-basis:46vw}
+  .rev{flex-basis:56vw}
+}
+
+
 </style>
 </head>
 <body>
@@ -630,18 +845,8 @@ html{overflow-x:hidden}
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.3-1.5 9 9 0 0 1-1.7-2c-.2-.3 0-.5.1-.6l.5-.5.3-.5a.6.6 0 0 0 0-.5L8.7 6.4c-.2-.5-.4-.4-.6-.4H7.6a1 1 0 0 0-.8.4 3.2 3.2 0 0 0-1 2.4 5.6 5.6 0 0 0 1.2 3 12.7 12.7 0 0 0 4.9 4.3c2.9 1.2 2.9.8 3.4.8a3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2z"/></svg>
         <span data-en="Book" data-as="বুক">Book</span>
       </button>
-      <button class="hamburger" id="hamBtn" aria-label="Menu" aria-expanded="false" onclick="toggleMobileNav()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
     </div>
   </div>
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="#experience" onclick="closeMobileNav()" data-en="Assam" data-as="অসম">Assam</a>
-    <a href="#gallery" onclick="closeMobileNav()" data-en="Fleet" data-as="বাছবহৰ">Fleet</a>
-    <a href="#amenities" onclick="closeMobileNav()" data-en="Amenities" data-as="সুবিধা">Amenities</a>
-    <a href="#reviews" onclick="closeMobileNav()" data-en="Reviews" data-as="মতামত">Reviews</a>
-    <a href="#faq" onclick="closeMobileNav()" data-en="FAQ" data-as="প্ৰশ্ন">FAQ</a>
-  </nav>
 </header>
 
 <!-- ============ HERO ============ -->
@@ -933,9 +1138,7 @@ const CONFIG = {
   whatsapp: "917086728443",           // primary booking line
   phone:    "+917086728443",          // tap-to-call (alt: 7637955163)
   heroPhoto:"url('images/destination-teagarden.png')",   // aerial: black Bikash Das coach through Upper Assam tea country
-  mapQuery: "Jorhat, Assam",          // home base boarding point (used for the "Get directions" Google Maps link)
-  mapLat: 26.7565,                    // latitude of boarding point (used for the embedded map)
-  mapLon: 94.2038,                    // longitude of boarding point (used for the embedded map)
+  mapQuery: "Jorhat, Assam",          // home base boarding point
 
   // Festival banner — dates MOVE every year (Bihu/Eid especially). Update yearly.
   festivals: [
@@ -955,11 +1158,13 @@ const CONFIG = {
 
   amenities: [
     { en:"2+1 AC Luxury", as:"২+১ এচি লাক্সাৰী", sub_en:"Seater & sleeper coaches", sub_as:"ছীটাৰ আৰু শ্লীপাৰ বাছ", icon:"ac" },
-    { en:"VIP Lounge & Luggage Space", as:"ভিআইপি লাউঞ্জ আৰু লাগেজৰ ঠাই", sub_en:"Private 1+1 sofa cabin with dedicated luggage room", sub_as:"ব্যক্তিগত ১+১ ছোফা কেবিন আৰু নিৰ্ধাৰিত লাগেজৰ ঠাই", icon:"blanket" },
+    { en:"VIP 1+1 Lounge", as:"ভিআইপি ১+১ লাউঞ্জ", sub_en:"Private sofa cabin, huge legroom", sub_as:"ব্যক্তিগত ছোফা কেবিন, ডাঙৰ ঠাই", icon:"blanket" },
     { en:"Onboard washroom", as:"বাছতে ৱাশ্‌ৰুম", sub_en:"On premium long-haul coaches", sub_as:"প্ৰিমিয়াম দীঘল ৰুটৰ বাছত", icon:"stop" },
-    { en:"Charging & Reading Light", as:"চাৰ্জিং আৰু পঢ়া লাইট", sub_en:"USB charging and a soft light at every seat", sub_as:"প্ৰতিটো আসনতে ইউএছবি চাৰ্জিং আৰু কোমল পঢ়া লাইট", icon:"charge" },
+    { en:"Charging points", as:"চাৰ্জিং পইণ্ট", sub_en:"At every berth", sub_as:"প্ৰতিটো বাৰ্থত", icon:"charge" },
+    { en:"Reading lights", as:"পঢ়া লাইট", sub_en:"Your own soft light", sub_as:"নিজৰ কোমল লাইট", icon:"light" },
     { en:"Water bottle", as:"পানীৰ বটল", sub_en:"Complimentary, one each", sub_as:"বিনামূলীয়া, প্ৰতিজনক এটাকৈ", icon:"water" },
-    { en:"Fresh blankets", as:"পৰিষ্কাৰ কম্বল", sub_en:"Sanitised sleeper berths", sub_as:"পৰিষ্কাৰ শ্লীপাৰ বাৰ্থ", icon:"blanket" }
+    { en:"Fresh blankets", as:"পৰিষ্কাৰ কম্বল", sub_en:"Sanitised sleeper berths", sub_as:"পৰিষ্কাৰ শ্লীপাৰ বাৰ্থ", icon:"blanket" },
+    { en:"Luggage space", as:"লাগেজৰ ঠাই", sub_en:"Dedicated compartments", sub_as:"নিৰ্ধাৰিত ঠাই", icon:"stop" }
   ],
 
   // Real Bikash Das loop: Borholla–Titabar–Jorhat–Dergaon–Bokakhat–Kaziranga–Nagaon–Guwahati
@@ -1178,26 +1383,12 @@ function applyConfig(){
   // tel links
   const tel = 'tel:'+CONFIG.phone;
   ['navCall','contactCall','footCall'].forEach(id=>{ const el=document.getElementById(id); if(el) el.setAttribute('href', tel); });
-  // map (OpenStreetMap embed — no API key needed, renders consistently on mobile & desktop)
-  const dLon = 0.02, dLat = 0.015;
-  const bbox = [CONFIG.mapLon-dLon, CONFIG.mapLat-dLat, CONFIG.mapLon+dLon, CONFIG.mapLat+dLat].join(',');
+  // map + directions
   document.getElementById('mapFrame').src =
-    `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${CONFIG.mapLat},${CONFIG.mapLon}`;
-  // directions button still opens real Google Maps for actual navigation
+    `https://maps.google.com/maps?q=${encodeURIComponent(CONFIG.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
   document.getElementById('dirBtn').href =
     `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(CONFIG.mapQuery)}`;
   document.getElementById('year').textContent = new Date().getFullYear();
-}
-
-/* ---------- mobile nav ---------- */
-function toggleMobileNav(){
-  const m = document.getElementById('mobileNav');
-  const open = m.classList.toggle('open');
-  document.getElementById('hamBtn').setAttribute('aria-expanded', open ? 'true' : 'false');
-}
-function closeMobileNav(){
-  document.getElementById('mobileNav').classList.remove('open');
-  document.getElementById('hamBtn').setAttribute('aria-expanded', 'false');
 }
 
 /* ---------- nav solidify on scroll ---------- */
@@ -1330,6 +1521,36 @@ function lbNext(){ lbIndex = (lbIndex + 1) % FLEET_PHOTOS.length; renderLightbox
   window.xpNext=()=>{ go(i+1); reset(); };
   window.xpPrev=()=>{ go(i-1); reset(); };
   reset();
+})();
+
+/* ---------- MOBILE v3: sticky bottom action bar (additive) ----------
+   Injected only on phones (<=680px). Uses the existing CONFIG + openWhatsApp().
+   Slides up after the splash so it never covers the intro. */
+(function(){
+  if(!window.matchMedia || !window.matchMedia('(max-width: 680px)').matches) return;
+  if(document.getElementById('mob-bar')) return;
+  const bar = document.createElement('div');
+  bar.id = 'mob-bar';
+  bar.innerHTML =
+    '<a class="mb-call" href="tel:'+CONFIG.phone+'" aria-label="Call to book">'+
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>'+
+    '</a>'+
+    '<button class="mb-wa" onclick="openWhatsApp()">'+
+      '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.3-1.5 9 9 0 0 1-1.7-2c-.2-.3 0-.5.1-.6l.5-.5.3-.5a.6.6 0 0 0 0-.5L8.7 6.4c-.2-.5-.4-.4-.6-.4H7.6a1 1 0 0 0-.8.4 3.2 3.2 0 0 0-1 2.4 5.6 5.6 0 0 0 1.2 3 12.7 12.7 0 0 0 4.9 4.3c2.9 1.2 2.9.8 3.4.8a3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2z"/></svg>'+
+      '<span>'+(typeof LANG!=='undefined' && LANG==='as' ? 'ৱাটছএপত বুক কৰক' : 'Book on WhatsApp')+'</span>'+
+    '</button>';
+  document.body.appendChild(bar);
+  // slide up after the splash finishes (splash auto-dismisses ~3s)
+  const show = ()=> bar.classList.add('show');
+  const sp = document.getElementById('splash');
+  if(sp && !sp.classList.contains('hide')) setTimeout(show, 3400); else setTimeout(show, 400);
+  // keep label in sync if user switches language
+  document.querySelectorAll('.lang button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const s = bar.querySelector('.mb-wa span');
+      if(s) s.textContent = (document.body.classList.contains('lang-as')) ? 'ৱাটছএপত বুক কৰক' : 'Book on WhatsApp';
+    });
+  });
 })();
 
 </script>

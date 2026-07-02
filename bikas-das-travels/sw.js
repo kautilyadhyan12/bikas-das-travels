@@ -3,7 +3,7 @@
    It caches the page + fonts so the routes/schedule stay visible
    even with no signal (e.g. at a boarding point in Upper Assam). */
 
-const CACHE = 'bikasdas-v4';
+const CACHE = 'bikasdas-v5';
 
 // Add every page/asset you want available offline.
 // If your main file isn't named index.html, change it here.
