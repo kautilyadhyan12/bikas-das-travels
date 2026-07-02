@@ -796,6 +796,80 @@ html{overflow-x:hidden}
   .rev{flex-basis:56vw}
 }
 
+/* ================================================================
+   MOBILE v4 REFINEMENTS — appended, purely additive.
+   1) Hero + "Experience Assam" revert to the ORIGINAL design
+   2) Amenities: compact 2-column chips (half the scroll length)
+   3) Booking form: 2-column fields on mobile (much shorter)
+   4) Footer: readable text, full brand name, calmer background
+   ================================================================ */
+@media(max-width:680px){
+
+  /* ---------- 1a. HERO — back to the original composition ---------- */
+  #hero{min-height:100svh;align-items:flex-start}
+  .hero-grad{background:linear-gradient(180deg,rgba(17,27,49,.28) 0%,rgba(17,27,49,0) 26%,rgba(17,27,49,.55) 68%,rgba(17,27,49,.94) 100%)}
+  .hero-content{padding-top:clamp(52px,9vh,110px);padding-bottom:0}
+  #hero h1{font-size:38px;letter-spacing:-.02em;margin:20px 0 0;line-height:1.03}
+  .hero-sub{font-size:15px;line-height:1.62;margin:22px 0 0;max-width:46ch}
+  .hero-cta{margin-top:36px;gap:14px}
+  .hero-cta .btn-wa{width:auto;justify-content:center;padding:13px 22px;font-size:15px}
+  .hero-cta .ghost{width:auto;justify-content:flex-start;border:0;border-radius:0;
+    padding:4px 0;background:none;backdrop-filter:none;border-bottom:2px solid transparent;font-size:15px}
+  .scrollcue{display:flex}
+
+  /* ---------- 1b. EXPERIENCE ASSAM — back to the original card ---------- */
+  .xp{aspect-ratio:16/9;border-radius:22px}
+  .xp-cap{padding:clamp(24px,4vw,48px)}
+  .xp-cap b{font-size:clamp(28px,4.5vw,52px);line-height:1.05}
+  .xp-cap span{font-size:clamp(14px,1.8vw,18px);margin-top:8px}
+  .xp-dots{bottom:22px;right:clamp(24px,4vw,48px)}
+  .xp-arrow{top:50%;bottom:auto;transform:translateY(-50%);width:36px;height:36px}
+  .xp-arrow svg{width:16px;height:16px}
+  .xp-prev{left:16px}
+  .xp-next{right:16px;left:auto}
+
+  /* ---------- 2. AMENITIES — compact 2-col chips, half the length ---------- */
+  .amen-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .amen{display:block;padding:16px 14px;border-radius:14px}
+  .amen .ic{width:36px;height:36px;border-radius:10px;margin-bottom:10px}
+  .amen .ic svg{width:18px;height:18px}
+  .amen b{font-size:13.5px;line-height:1.35;margin-bottom:3px}
+  .amen span{font-size:11.5px;line-height:1.45}
+
+  /* ---------- 3. BOOKING FORM — two columns, everything kept ---------- */
+  .form .grid2{grid-template-columns:1fr 1fr;gap:10px}
+  .field{margin-bottom:11px}
+  .field label{font-size:10px;letter-spacing:.08em;margin-bottom:5px}
+  .field input,.field select{padding:12px 11px;font-size:16px;border-radius:10px}
+  .field select{background-position:right 9px center;padding-right:26px}
+  .form{padding:20px 16px}
+  .form .hint{margin-top:9px}
+
+  /* ---------- 4. FOOTER — readable & tidy ---------- */
+  /* much darker wash so text reads over the bus photo */
+  footer.has-bg::before{
+    background-image:linear-gradient(rgba(15,23,44,.9),rgba(9,14,27,.95)),url('images/brand-bus.png');
+    background-attachment:scroll}
+  /* undo the navbar truncation rules for the footer brand */
+  footer .brand b{max-width:none;white-space:normal;overflow:visible;text-overflow:clip;font-size:19px;line-height:1.2}
+  footer .brand span{max-width:none;white-space:normal;overflow:visible;text-overflow:clip;font-size:9.5px}
+  footer .foot p{font-size:14px;line-height:1.65;max-width:none}
+  .foot{gap:26px}
+  .foot .cols{gap:0;width:100%;justify-content:space-between}
+  .foot .col{flex:1}
+  .foot .col h4{margin-bottom:10px}
+  .foot .col a{font-size:14.5px;padding:6px 0;margin-bottom:4px}
+  .copy{font-size:12px;text-align:left}
+}
+
+/* very narrow phones: restore original tiny-screen hero + carousel */
+@media(max-width:400px){
+  .xp{aspect-ratio:16/9}
+}
+@media(max-width:360px){
+  #hero h1{font-size:32px}
+}
+
 
 </style>
 </head>
@@ -861,7 +935,7 @@ html{overflow-x:hidden}
     <span class="eyebrow" data-en="Sleeper &amp; seater · across Assam" data-as="শ্লীপাৰ আৰু ছীটাৰ · সমগ্ৰ অসমত">Sleeper &amp; seater · across Assam</span>
     <h1>
       <span class="l1" data-en="Board Today," data-as="আজিয়েই আমাৰ সৈতে যাত্ৰা কৰক,">Board tonight,</span>
-      <span class="l2" data-en="" data-as="">wake up in <span class="g" data-en="Assam." data-as="">Assam.</span></span>
+      <span class="l2" data-en="wake up in <span class='g'>Assam.</span>" data-as="">wake up in <span class="g">Assam.</span></span>
     </h1>
     <p class="hero-sub" data-en="Premium sleeper &amp; seater coaches, spotless cabins, and on-time departures — book with just one message on WhatsApp." data-as="প্ৰিমিয়াম শ্লীপাৰ আৰু ছীটাৰ বাছ, পৰিষ্কাৰ কেবিন, আৰু সময়মতে প্ৰস্থান — মাত্ৰ এটা WhatsApp বাৰ্তাৰে বুকিং কৰক।">Premium sleeper &amp; seater coaches, spotless cabins, and on-time departures — no app, no queue, just one message on WhatsApp.</p>
     <div class="hero-cta">
