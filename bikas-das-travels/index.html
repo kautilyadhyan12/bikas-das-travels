@@ -364,6 +364,7 @@ footer.has-bg .brand b,footer.has-bg .brand span,footer.has-bg p,footer.has-bg .
   .form .grid2{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
   .shot.big{grid-column:span 2;grid-row:span 1}
+  .shot:last-child{grid-column:span 2}
   .amen-grid{grid-template-columns:1fr 1fr}
   .foot{flex-direction:column}
   .nav-right .btn-call{display:none}
@@ -474,6 +475,16 @@ body.lang-as .lb-cap{font-family:"Noto Serif Bengali",serif}
 #about::before{background-image:linear-gradient(135deg,rgba(225,96,42,.55),rgba(184,72,26,.62)),url('images/about-us.png');background-position:center 62%}
 #faq::before{background-image:linear-gradient(rgba(250,246,238,.45),rgba(250,246,238,.58)),url('images/qa.jpg')}
 footer.has-bg::before{background-image:linear-gradient(rgba(17,27,49,.28),rgba(11,17,33,.4)),url('images/brand-bus.png');background-attachment:fixed}
+
+@media(max-width:680px){
+  #amenities::before{background-image:linear-gradient(rgba(231,242,252,.82),rgba(231,242,252,.88)),url('images/saved-passengers.jpg')}
+  #book::before{background-image:linear-gradient(rgba(252,235,224,.82),rgba(252,235,224,.88)),url('images/luggage.jpg')}
+  #reviews::before{background-image:linear-gradient(rgba(232,244,234,.82),rgba(232,244,234,.88)),url('images/trust.png')}
+  #about::before{background-image:linear-gradient(135deg,rgba(225,96,42,.82),rgba(184,72,26,.86)),url('images/about-us.png')}
+  #faq::before{background-image:linear-gradient(rgba(250,246,238,.85),rgba(250,246,238,.9)),url('images/qa.jpg')}
+  footer.has-bg::before{background-image:linear-gradient(rgba(17,27,49,.68),rgba(11,17,33,.76)),url('images/brand-bus.png')}
+  .stat{background:rgba(255,255,255,.22)}
+}
 
 @media(max-width:900px){
   .has-bg::before{background-attachment:scroll}
